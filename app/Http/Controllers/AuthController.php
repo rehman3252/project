@@ -95,3 +95,8 @@ class AuthController extends Controller
 // git add .
 // git commit -m "your commit message here"
 // git push origin main
+
+// Command lines for uploading project into github
+// git add .
+// git commit -m "your commit message here"
+// git push origin main
