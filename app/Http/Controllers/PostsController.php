@@ -45,27 +45,24 @@ class PostsController extends Controller
                 'errors' => $validatepost->errors()->all(),
             ], 422);
         }
-        $user = $request->user();
+        // $user = $request->user();
         $img = $request->file('image');
         $ext = $img->getClientOriginalExtension();
         $imageName = time() . '_' . $ext;
         $img->move(public_path('/uploads'), $imageName);
 
-        $user = $request->user(); // works because of Sanctum
-        $userId = $user->id;
         $post = Post::create([
-
             'title' => $request->title,
             'description' => $request->description,
             'image' => $imageName,
-            'user_id' => $userId,
-
         ]);
+
         return response()->json([
             'status' => true,
             'message' => 'Post created successfully.',
             'post' => $post,
         ], 201);
+        
     }
     /**
      * Display the specified resource.

@@ -57,7 +57,6 @@ class AuthController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $Authuser = Auth::user();
-
             if (!$Authuser) {
                 return response()->json([
                     'status' => false,
