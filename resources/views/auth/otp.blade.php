@@ -38,15 +38,12 @@
     </style>
 </head>
 <body>
-
 <div class="container">
     <h2>Enter OTP</h2>
 
     @if (session('message'))
         <p class="message">{{ session('message') }}</p>
     @endif
-
-
     <form action="{{ route('otp.verify') }}" method="POST">
         @csrf
         <label for="otp">One-Time Password (OTP)</label>
@@ -54,12 +51,10 @@
         
         <button type="submit">Verify</button>
     </form>
-
     <form action="{{ route('otp.resend') }}" method="POST" style="margin-top: 10px;">
         @csrf
         <button type="submit">Resend OTP</button>
     </form>
 </div>
-
 </body>
 </html>

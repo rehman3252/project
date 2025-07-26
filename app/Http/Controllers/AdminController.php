@@ -22,7 +22,6 @@ class AdminController extends Controller
     {
         return view('login');
     }
-
     public function showOtpForm()
     {
         return view('auth.otp');
@@ -74,7 +73,6 @@ class AdminController extends Controller
     {
         // Check if OTP session exists
         $userId = session('otp_user_id');
-
         if (!$userId) {
             return back()->withErrors(['otp' => 'Session expired. Please login again.']);
         }
